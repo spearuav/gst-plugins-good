@@ -85,6 +85,7 @@ public:
 
 Q_SIGNALS:
     void itemInitializedChanged();
+    void updateDone(quint64 time);
 
 private Q_SLOTS:
     void handleWindowChanged(QQuickWindow * win);

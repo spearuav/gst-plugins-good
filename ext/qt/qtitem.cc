@@ -241,6 +241,10 @@ QtGLVideoItem::updatePaintNode(QSGNode * oldNode,
   texNode->setRect (QRectF (result.x, result.y, result.w, result.h));
 
   gst_gl_context_activate (this->priv->other_context, FALSE);
+
+  if (this->priv->buffer)
+    emit updateDone(this->priv->buffer->pts);
+
   g_mutex_unlock (&this->priv->lock);
 
   return texNode;
